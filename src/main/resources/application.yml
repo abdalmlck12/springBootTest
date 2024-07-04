@@ -1,10 +1,11 @@
-# spring.profiles.active=dev,test,custom
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/demo_db
+    url: jdbc:postgresql://localhost:5432/demo_db  # Replace <hostname> with the actual hostname or IP
     username: postgres
     password: 5050
     driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,3 +15,7 @@ spring:
         format_sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: postgresql
+logging:
+  level:
+    com.zaxxer.hikari: DEBUG
+    org.springframework.jdbc.datasource.DataSourceUtils: DEBUG
