@@ -38,8 +38,10 @@ public class StudentController {
 
     }
 
-    @GetMapping("/students/search/{student-name}")
-    public List<StudentResponseDto> findStudentByName(@PathVariable("student-name") String name) {
+     @GetMapping("/students/search")
+    public List<StudentResponseDto> findStudentByName(
+            @RequestParam("name") String name
+    ) {
         return studentService.findStudentByName(name);
     }
 
